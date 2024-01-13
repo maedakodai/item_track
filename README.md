@@ -62,3 +62,6 @@ Fly.io
 
 画面遷移図
 https://www.figma.com/file/76HViZucOJ841gOKuCKfNv/Untitled?type=design&node-id=0%3A1&mode=design&t=gbsVwoapVHriuwOH-1
+
+ER図
+https://gyazo.com/c2f7cf85a1c7878870b3459441221200
