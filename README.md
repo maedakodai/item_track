@@ -64,4 +64,4 @@ Fly.io
 https://www.figma.com/file/76HViZucOJ841gOKuCKfNv/Untitled?type=design&node-id=0%3A1&mode=design&t=gbsVwoapVHriuwOH-1
 
 ER図
-https://gyazo.com/f2b20e2cc842816d5ebf86c1ba52c9a9
+https://gyazo.com/3ce9096877907202da517087f9efe65c
