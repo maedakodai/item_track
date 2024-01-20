@@ -1,0 +1,7 @@
+AllCops:
+  Exclude:
+    - 'bin/*' # すべてのbinディレクトリ内のファイルを除外する
+    - 'db/schema.rb' # schemaファイルを除外する
+    - 'config/environments/*' # 環境設定ファイルを除外する
+Style/Documentation:
+  Enabled: false
