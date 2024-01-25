@@ -53,7 +53,8 @@ LINE Messaging APIを使用して、ユーザーにリマインダー通知を�
 ユーザーは設定画面でリマインダーの言語を「標準語」または「関西弁」から選択できます。
 
 ## ■技術選定
-Rails7
+Rails7.1.3
+Ruby 3.2.2
 postgresql
 JavaScript
 Hotwire
