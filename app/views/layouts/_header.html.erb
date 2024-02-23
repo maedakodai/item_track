@@ -8,8 +8,8 @@
     <div class="collapse navbar-collapse" id="navbarContent">
       <ul class="navbar-nav ms-auto">
         <% if user_signed_in? %>
-          <li class="nav-item"><%= link_to "アイテム一覧", '#', class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "アイテム追加", '#', class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "アイテム一覧", items_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "アイテム追加", new_item_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "通知設定", '#', class: "nav-link" %></li>
         <% else %>
           <li class="nav-item"><%= link_to "新規登録", new_user_registration_path, class: "nav-link" %></li>
