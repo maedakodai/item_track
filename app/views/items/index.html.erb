@@ -8,7 +8,6 @@
     <thead>
       <tr>
         <th>アイテム</th>
-        <th>何日前に通知</th>
         <th>開始日</th>
         <th>終了日</th>
       </tr>
@@ -18,10 +17,9 @@
       <% @items.each do |item| %>
         <tr>
          <td><%= item.name %></td>
-         <td><%= item.reminder_days_before_end %></td>
          <td>開始から<%= (Date.today - item.start_at).to_i %>日</td>
          <td>
-          <%= if item.end_at %>
+          <% if item.end_at %>
             交換まであと<%= (item.end_at - Date.today).to_i %>日
           <% else %>
              N/A
