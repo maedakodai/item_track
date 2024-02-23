@@ -8,7 +8,9 @@ class ItemsController < ApplicationController
   end
 
   def create
-    item = Item.new(item_params)
+    item = current_user.items.new(item_params)
+    item.save!
+    redirect_to items_path
   end
 
 
@@ -21,6 +23,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(item).permit(:name, :reminder_days_before_end)
+    params.require(:item).permit(:name, :reminder_days_before_end, :start_at, :end_at)
   end
 end
