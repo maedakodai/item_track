@@ -1,2 +1,37 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<div>
+  <h1>消耗品一覧</h1>
+  <div>
+    <%= link_to '新規登録', new_item_path, class: "btn btn-primary" %>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>アイテム</th>
+        <th>何日前に通知</th>
+        <th>開始日</th>
+        <th>終了日</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @items.each do |item| %>
+        <tr>
+         <td><%= item.name %></td>
+         <td><%= item.reminder_days_before_end %></td>
+         <td>開始から<%= (Date.today - item.start_at).to_i %>日</td>
+         <td>
+          <%= if item.end_at %>
+            交換まであと<%= (item.end_at - Date.today).to_i %>日
+          <% else %>
+             N/A
+          <% end %>
+         </td>
+         <td>
+            <%= link_to '編集', edit_item_path(item), class: "btn btn-small btn-secondary" %> 
+            <%= link_to '削除', item, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-small btn-danger" %>
+         </td>
+        </tr>
+      <% end %>
+  </table>
+</div>
