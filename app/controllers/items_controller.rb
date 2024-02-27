@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.order(:id)
   end
 
   def new
@@ -18,6 +18,19 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    item = Item.find(params[:id])
+    item.update!(item_params)
+    redirect_to items_path
+  end
+
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to items_path, notice: "アイテム#{item.name}を削除しました"
   end
 
   private
