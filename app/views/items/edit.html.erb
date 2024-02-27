@@ -1,2 +1,31 @@
-<h1>Items#edit</h1>
-<p>Find me in app/views/items/edit.html.erb</p>
+<%= form_with model: @item, local: true do |f| %>
+
+  <div class="form-group">
+    <%= f.label :name, "商品名" %>
+    <%= f.text_field :name, class: "form-control", placeholder: "商品名を入力" %>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :reminder_days_before_end, "リマインド通知日" %>
+      <%= f.number_field :reminder_days_before_end, class: "form-control", placeholder: "何日まえに通知を受けたいか" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :start_at, "開始日" %>
+    <%= f.date_field :start_at, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :end_at, "終了日" %>
+      <%= f.date_field :end_at, class: "form-control" %>
+  </div>
+  
+
+  <div class="actions">
+      <%= f.submit "変更する", class: "btn btn-primary" %>
+  </div>
+
+<% end %>
+
+
+
