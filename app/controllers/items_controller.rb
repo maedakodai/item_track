@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
+
   def index
-    @items = Item.order(:id)
+    @items = current_user.items.order(:id)
   end
 
   def new
@@ -15,20 +16,21 @@ class ItemsController < ApplicationController
 
 
   def show
+    @item = current_user.items.find(params[:id])
   end
 
   def edit
-    @item = Item.find(params[:id])
+    @item = current_user.items.find(params[:id])
   end
 
   def update
-    item = Item.find(params[:id])
+    item = current_user.items.find(params[:id])
     item.update!(item_params)
     redirect_to items_path
   end
 
   def destroy
-    item = Item.find(params[:id])
+    item = current_user.items.find(params[:id])
     item.destroy
     redirect_to items_path, notice: "アイテム#{item.name}を削除しました"
   end
@@ -38,4 +40,5 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :reminder_days_before_end, :start_at, :end_at)
   end
+
 end

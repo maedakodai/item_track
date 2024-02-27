@@ -26,6 +26,7 @@
           <% end %>
          </td>
          <td>
+            <%= link_to '詳細', item_path(item), class: "btn btn-small btn-info" %>
             <%= link_to '編集', edit_item_path(item), class: "btn btn-small btn-secondary" %> 
             <%= link_to '削除', item, method: :delete, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, class: "btn btn-small btn-danger" %>
          </td>
