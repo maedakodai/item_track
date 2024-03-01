@@ -1,0 +1,39 @@
+<!-- _items_table.html.erb -->
+<table class="table">
+  <thead>
+    <tr>
+      <th>アイテム名</th>
+      <th>経過日数</th>
+      <th>残り日数/超過日数</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% items.each do |item| %>
+      <tr>
+        <td><%= item.name%></td>
+        <td><%= (Date.today - item.start_at).to_i %>日</td>
+        <td>
+          <% if item.end_at %>
+            <% days = (item.end_at - Date.today).to_i %>
+            <%= days >= 0 ? "#{days}日" : "#{days.abs}日超過" %>
+          <% else %>
+            N/A
+          <% end %>
+        </td>
+        <td>
+          <% if item.completed? %>
+            <%= link_to '削除', item, method: :delete, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, class: "btn btn-small btn-danger" %>
+          <% else %>
+            <%= link_to '詳細', item_path(item), class: "btn btn-small btn-info" %>
+            <%= link_to '編集', edit_item_path(item), class: "btn btn-small btn-secondary" %>
+          <% if item.recommended? %>
+            <%= link_to '交換完了', complete_item_path(item), data: { turbo_method: :patch }, class: "btn btn-small btn-success" %>
+          <% end %>
+            <%= link_to '削除', item, method: :delete, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, class: "btn btn-small btn-danger" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
